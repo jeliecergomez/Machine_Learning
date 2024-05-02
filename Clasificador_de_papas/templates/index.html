@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Imagenes de papa</title>
+</head>
+<body>
+    <h1>Clasificador de Imagenes de papa</h1>
+    {% if prediction %}
+        <h2>Resultado para la imagen: {{ filenamex }}: {{ prediction }}</h2>
+        <h2>        
+        
+        <img src= "{{url_for('static', filename=filenamex)}}" alt="Prediccion de imagen: {{ prediction }}"  style="max-width: 500px"/>
+        <h3>
+            Prediccion: {{ prediction }}
+        </h3>
+
+        </h2>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Cargar">
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
