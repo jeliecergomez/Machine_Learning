@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Image Classifier</title>
+</head>
+<body>
+    <h1>Potato Image Classifier</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png">
+        <button type="submit">Upload Image</button>
+    </form>
+   {% if message %}
+        <h2>{{ message }}</h2>
+    {% endif %}
+    {% if image_file %}
+        <img src="{{ image_file }}" alt="Uploaded Image" style="max-width: 500px">
+    {% endif %}
+</body>
+</html>
