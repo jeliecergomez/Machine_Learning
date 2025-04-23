@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clasificación de Enfermedades de Plantas (Tomate, Ají Pimiento y Papa)</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 40px; }
+        img { max-width: 400px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Clasificador de Enfermedades en Plantas (Tomate, Ají Pimiento y Papa)</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" capture="environment" required>
+        <br><br>
+        <button type="submit">Predecir</button>
+    </form>
+
+    {% if image_path %}
+        <h2>Imagen cargada:</h2>
+        <img src="{{ image_path }}" alt="Imagen de planta">
+        <h2>Resultado:</h2>
+        <p><strong>Enfermedad:</strong> {{ prediction }}</p>
+        <p><strong>Confianza:</strong> {{ confidence }}%</p>
+    {% endif %}
+</body>
+</html>
